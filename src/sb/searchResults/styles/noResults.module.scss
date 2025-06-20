@@ -1,0 +1,82 @@
+@use '../../css/variables' as variables;
+
+
+// ==========================================================================================
+
+
+:global(#sb-root) {
+   .noResults {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      flex-shrink: 0;
+      width:100%;
+      margin: 0;
+      padding: 25px;
+
+      @media screen and (min-width: variables.$tablet-breakpoint) {
+         padding: 40px 20px 60px;
+      }
+
+
+      &Icon {
+         color: #7639e2;
+         animation: pulse 2.5s ease-in-out infinite;
+         flex-shrink: 0;
+
+         width: 80px;
+         height: 80px;
+      }
+
+      .noResultsText {
+         // margin-bottom: 24px;
+         text-wrap: balance;
+         
+         h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 12px;
+         }
+
+         p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0;
+         }
+      }
+
+      
+
+      h3 {
+         color: #474747;
+         font-size: 16px;
+         font-weight: bold;
+         margin-bottom: 16px;
+      }
+
+
+      @keyframes pulse {
+         0% {
+            transform: scale(0.95);
+            rotate: 0deg;
+         }
+
+         10%,
+         30% {
+            transform: scale(1);
+         }
+
+         20%,
+         40%,
+         100% {
+            transform: scale(0.95);
+         }
+      }
+   }
+}

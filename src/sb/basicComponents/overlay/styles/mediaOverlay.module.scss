@@ -1,0 +1,278 @@
+$tablet-breakpoint: 836px;
+$mobile-breakpoint: 480px;
+
+$active-img-border-color:#8242f0;
+
+:global(#sb-root) {
+    .sbModal {
+        width: 100%;
+        padding: 0px;
+        margin: 10px 0px;
+        background-color: transparent;
+        color-scheme: dark;
+        border:none;
+        box-shadow: none;
+
+        &::backdrop {
+            overflow: hidden;
+            background-color: #000000de;
+         }
+
+        .sbModalHeading {
+            width: 100%;
+            padding-bottom: 10px;
+
+            button {
+                background-color: #E8E8E3;
+                padding: 3px;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                opacity: 1;
+
+                svg {
+                    width: 27px;
+                    height: 27px;
+                }
+            }
+
+            .imgTitle {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                font-size: 23px;
+                font-weight: 600;
+                align-items: center;
+                color: #fff;
+
+                h2 {
+                    font-size: 20px;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    max-width: 60%;
+                }
+
+                .link {
+                    font-size: 14px;
+                    padding: 6px 10px;
+                    border-radius: 20px;
+                    color: #fff;
+                    font-weight: 300;
+                    border: 1px solid hsla(60, 10%, 83%, .6);
+                    margin-right: 20px;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                        margin-right: 10px;
+
+                        path {
+                            stroke: #fff;
+                        }
+                    }
+
+                    span {
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        display: block;
+                        overflow: hidden;
+                        max-width: 20em;
+                        width: 100%;
+                        transition: max-width 0.3s ease-in-out;
+                    }
+
+                    &:hover {
+                        span {
+                            max-width: 40em;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: $tablet-breakpoint) {
+                .sbModalHeading {
+                    .imgTitle {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 10px;
+
+                        h2 {
+                            max-width: 100%;
+                        }
+
+                        .link {
+                            font-size: 10px;
+                            max-width: 60%;
+                            padding: 3px 6px;
+                        }
+                    }
+                }
+
+                .closeBtn svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .sbModalBody {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 0px;
+            height: 100%;
+            overflow: hidden;
+            padding: 0;
+            max-height: 100%;
+            padding: 20px;
+            padding-right: 0px;
+
+            .currentImageSection {
+                max-width: 68%;
+                width: 100%;
+                height: 100%;
+
+                .container {
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 6px;
+                    // margin-left: 25px;
+                    margin-top: 20px;
+                }
+
+                @media screen and (max-width: $tablet-breakpoint) {
+                    max-width: 100%;
+
+                    .container {
+                        margin-top: 0px;
+                    }
+                }
+            }
+
+            .imgContainer {
+                position: relative;
+                display: inline-block;
+                max-width: 100%;
+                overflow: hidden;
+                border-radius: 8px;
+                border: 2px solid transparent;
+                padding: 2px;
+
+                .selectedImg {
+                    width: 100%;
+                    object-fit: contain;
+                    min-height: 365px;
+                    max-height: 75vh;
+                    vertical-align: middle;
+                    object-position: center;
+                    max-width: 100%;
+                    height: auto;
+                    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+                    transition-property: all;
+                    transition-duration: .15s;
+                    animation: fadeInScale 0.4s ease forwards;
+                    opacity: 0;
+                    transform: scale(0.95);
+    
+
+                    &:hover {
+                        cursor: auto;
+                        opacity: 1;
+                    }
+
+                    @media screen and (max-width: 980px) {
+                        max-height: 45vh;
+                        min-height: 0px;
+                    }
+                }
+
+                img {
+                    object-fit: cover;
+                    border-radius: 6px;
+                    margin-top: 0px;
+                    vertical-align: middle;
+                    width: 100%;
+                    background-color: rgb(243, 243, 238);
+                    
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: .8;
+                    }
+
+                }
+            }
+
+            .imageGridSection {
+                max-width: 30%;
+                width: 100%;
+
+                .gridView {
+                    height: calc(100vh - 150px);
+                    overflow-y: auto;
+                    display: -ms-flexbox;
+                    /* IE10 */
+                    display: flex;
+                    -ms-flex-wrap: wrap;
+                    /* IE10 */
+                    flex-wrap: wrap;
+                    padding: 0 4px;
+                    flex-direction: row-reverse;
+
+                    .flexWidth {
+                        -ms-flex: 50%;
+                        /* IE10 */
+                        flex: 50%;
+                        max-width: 50%;
+                        padding: 0 4px;
+                        height: 100%;
+
+                        .activeImg {
+                            border: 2px solid $active-img-border-color;
+                        }
+                    }
+                }
+
+                @media screen and (max-width: $tablet-breakpoint) {
+                    max-width: 80%;
+                    width: 100%;
+                    margin: 0px auto;
+
+                    .gridView {
+                        overflow: hidden;
+                        height: 100%;
+                    }
+                }
+
+                @media screen and (max-width: $mobile-breakpoint) {
+                    max-width: 100%;
+                }
+            }
+
+            @media screen and (max-width: $tablet-breakpoint) {
+                flex-direction: column;
+                gap: 20px;
+
+            }
+        }
+    }
+    @keyframes fadeInScale {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}

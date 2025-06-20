@@ -1,0 +1,179 @@
+@use './variables' as variables;
+
+
+// ==========================================================================================
+
+
+:global(#sb-root) {
+   .contentWrapper {
+      max-width: 1366px;
+      margin: 0 auto;
+      padding: 0;
+
+      @media screen and (min-width: variables.$mobile-breakpoint) {
+         padding: 0;
+      }
+   }
+
+   .popover {
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.2) 0px 30px 60px -30px;
+      color: #9c15da;
+      min-width: 140px;
+      padding: 4px 8px;
+
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      z-index: 999;
+
+      animation: fadeIn 0.2s ease-in-out;
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(-10px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+   }
+
+   .loadingSpinner {
+      width: 17px;
+      height: 17px;
+      fill: #938ca4;
+      stroke: #938ca4;
+      stroke-width: 1;
+      animation: spin .6s infinite linear;
+
+   }
+
+   .searchSpinner {
+      color: #fff;
+      text-align: center;
+      animation: spin 1s infinite linear;
+   }
+
+   .chatSpinner {
+      color: #fff;
+      text-align: center;
+      animation: spinFastThenSlow 4s infinite linear;
+   }
+
+   .skipToMain {
+      background-color: #fff;
+      border: 1px solid #000;
+      color: #000;
+      opacity: 0;
+      position: absolute;
+      left: -9999px;
+      z-index: 999;
+
+      &:focus {
+         left: 50%;
+         transform: translateX(-50%);
+         opacity: 1;
+      }
+   }
+
+   .hiddenH1 {
+      background-color: #fff;
+      color: #000;
+      opacity: 0;
+      position: absolute;
+      left: -9999px;
+      z-index: 999;
+   }
+
+   .userLogout {
+      text-align: right;
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      background-color: #7639e2;
+      background-image: linear-gradient(to bottom, #8625e0, #8320df, #801adf, #7d14de, #7a0bde);
+      border-color: #7639e2;
+      transition: 0.3s ease;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+         color: #e7e7e7;
+         opacity: 0.8;
+         translate: 0 1px;
+      }
+
+      svg {
+         width: 18px;
+         height: 18px;
+         stroke-width: 2.2;
+         translate: 2px 0;
+      }
+   }
+
+   .commonHeading {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      svg{
+         width: 28px;
+         height: 28px;
+         color: #a64ac9;
+      }
+      .aiheadingSVG{
+         width: 20px;
+         height: 20px;
+      }
+      h2{
+         font-weight: 600;
+         font-size: 16px;
+         margin: 0;
+         margin-left: 10px;
+         color: #474747;
+         text-transform: uppercase;
+      }
+   }
+
+   .sbW100{
+      width: 100%;
+   }
+
+   .productDiscoveryIcon {
+      width: 18px;
+      height: 18px;
+   }
+
+   @keyframes spin {
+      0% {
+         transform: rotate(0deg);
+      }
+
+      100% {
+         transform: rotate(360deg);
+      }
+   }
+   @keyframes spinFastThenSlow {
+      0% {
+         transform: rotate(0deg);
+      }
+      
+      25% { 
+         transform: rotate(360deg);
+         animation-timing-function: cubic-bezier(0.1, 0, 0.3, 1);
+      }
+      
+      100% { 
+         transform: rotate(720deg);
+         animation-timing-function: cubic-bezier(0.2, 0, 0.3, 1);
+      }
+   }
+}

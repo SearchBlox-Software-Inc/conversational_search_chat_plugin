@@ -1,0 +1,205 @@
+@use '../../css/variables.scss' as variables;
+
+$accent-color: #7639e2;
+
+:global(#sb-root) {
+
+   .inputWrapper,
+   .inputWrapperResults {
+
+      position: relative;
+      border: 1px solid #d9d9d0;
+      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      padding: 5px 15px;
+      border-radius: 1rem;
+      width: 100%;
+      margin-bottom: 0;
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+      background-color: #fff;
+
+      // &:focus-within {
+      //    border-color: #7639e2;
+      //    outline: 5px auto #bfa2f1;
+      // }
+
+   }
+
+   .searchInputWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      margin-right: 10px;
+
+      svg {
+         vertical-align: middle;
+         width: 18px;
+         height: 18px;
+      }
+   }
+
+   .showAutoSuggest {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px, rgba(0, 0, 0, 0.08) -4px 0px 12px, rgba(0, 0, 0, 0.08) 4px 0px 12px;
+   }
+
+   .showAutoSuggestHero {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      box-shadow: rgba(0, 0, 0, 0.08) -4px -4px 12px, rgba(0, 0, 0, 0.08) 4px -4px 12px;
+   }
+
+   .inputWrapperResults {
+      display: flex;
+      background-color: #fff;
+      padding: 0px 15px 0px 0px;
+
+      .searchInput {
+         margin-left: 10px;
+         margin-right: 10px;
+      }
+
+      .searchBtn {
+         width: 36px;
+         height: 34px;
+
+         svg {
+            rotate: 270deg;
+         }
+      }
+   }
+
+   .searchInput {
+      background-color: transparent;
+      border: none;
+      color: #2c2c2c;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      line-height: 1.3333333;
+      text-overflow: ellipsis;
+      transition: all ease-in-out 0.3s;
+
+      display: block;
+      height: 50px;
+      width: 100%;
+
+      &:focus {
+         outline: none;
+      }
+
+      // &.voiceSearchEnabled {
+      //    padding-right: 86px;
+      // }
+   }
+
+   .searchBtn {
+      background-color: #7639e2;
+      background-image: linear-gradient(to bottom, #8625e0, #8320df, #801adf, #7d14de, #7a0bde);
+      border-color: #7639e2;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      width: 38px;
+      height: 36px;
+      transition: 0.3s ease-in-out;
+
+      display: grid;
+      place-items: center;
+
+      svg {
+         width: 16px;
+         height: 16px;
+         transition: 0.2s ease-in-out;
+      }
+
+      &:hover {
+         color: #e7e7e7;
+         opacity: 0.8;
+         translate: 0 1px;
+      }
+   }
+
+
+   .inputButtons {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 0;
+      align-items: center;
+
+      button {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 3px;
+      }
+   }
+
+   .searchSettings {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+   }
+
+   .clearSearchBtn {
+      background-color: transparent;
+      border: none;
+      color: #333;
+      padding: 0;
+
+      &:hover {
+         color: #6a6a6a;
+
+         svg {
+            transform: rotate(90deg);
+         }
+      }
+
+      svg {
+         width: 14px;
+         height: 14px;
+         transition: 0.2s ease-in-out;
+      }
+   }
+
+   .voiceSearchBtn {
+      background-color: transparent;
+      border: none;
+      width: 38px;
+      height: 36px;
+      border-radius: 8px;
+      color: #64645F;
+      padding: 0;
+      transition: all 0.2s ease;
+
+      display: grid;
+      place-items: center;
+
+      &:hover {
+         color: $accent-color;
+         translate: 0 1px;
+         background-color: #e0ceff;
+      }
+
+      svg {
+         height: 19px;
+         width: 19px;
+      }
+
+      &.recording {
+         color: #a30300;
+      }
+
+      @media screen and (max-width: variables.$mobile-breakpoint) {
+         width: 34px;
+         height: 34px;
+         svg{
+            width: 20px;
+            height: 20px;
+         }
+      }
+   }
+}

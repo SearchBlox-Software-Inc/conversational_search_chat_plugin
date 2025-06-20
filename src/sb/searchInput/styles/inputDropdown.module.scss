@@ -1,0 +1,96 @@
+@use '../../css/variables.scss' as variables;   
+
+:global(#sb-root) {
+   .inputDropdown {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+   
+      position: absolute;
+      bottom: calc(100% + 0px);
+      left: 0;
+      z-index: 999;
+      border: 1px solid #d9d9d0;
+      // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      border-radius: 1rem;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      padding: 15px 0px;
+      width: 100%;
+   
+      &:not(:empty) {
+         border: 1px solid #e4e4e4;
+         // box-shadow: rgba(50, 50, 93, 0.1) 0px 50px 100px -20px, rgba(0, 0, 0, 0.25) 0px 30px 60px -30px;
+      }
+   
+      &Item {
+   
+         &:not(:first-child):not(:empty) {
+            border-top: 1px solid #f1f1f1;
+         }
+   
+         h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 0px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+   
+            svg {
+               width: 18px;
+               height: 18px;
+            }
+         }
+      }
+   
+      ul {
+         margin: 0;
+         padding: 0;
+      }
+   
+      // h3 {
+      //    color: #000;
+      //    flex-shrink: 0;
+      //    font-size: 17px;
+   
+      //    margin: 0;
+      //    text-transform: uppercase;
+      //    padding: .4rem 1.2rem;
+   
+      //    display: flex;
+      //    justify-content: flex-start;
+      //    align-items: center;
+      //    gap: 6px;
+   
+      // }
+   
+      li button {
+         background-color: transparent;
+         border: none;
+         color: #1d1c1c;
+         width: 100%;
+         text-align: left;
+         padding: 5px 15px;
+         border-radius: 0px;
+
+         font-size: 15px;
+         line-height: 1.5;
+         color: #000;
+
+         &:last-child {
+            padding-bottom: 10px;
+         }
+   
+         &:hover {
+            background-color: #e8e8e3;
+         }
+   
+         &:focus {
+            background-color: #e8e8e3;
+            outline-color: #e8e8e3;
+         }
+      }
+   }
+}

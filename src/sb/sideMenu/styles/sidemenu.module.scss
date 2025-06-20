@@ -1,0 +1,615 @@
+$desktopSidenavWidth: 220px;
+$desktopCollapseSidenavWidth: 70px;
+
+$mobile-breakpoint: 640px;
+$tablet-breakpoint: 768px;
+
+$text-color: rgb(100, 100, 95);
+$bg-color: rgb(232, 232, 227);
+
+$active-menu-color: #572976;
+$active-menu-color-dark: #260e46;
+$active-menu-color-light: #ede1ff;
+
+$border-color: hsla(60, 10%, 83%, 0.6);
+
+:global(#sb-root) {
+
+  .sidenav {
+    display: block;
+    max-width: $desktopSidenavWidth;
+    width: 100%;
+    margin-right: 5px;
+    transition: width 0.3s;
+
+    .height100 {
+      height: 100%;
+    }
+
+
+    .sidenavFixed {
+      position: fixed;
+      z-index: 20;
+      padding: 0px 0px;
+      margin-left: 4px;
+      max-width: $desktopSidenavWidth;
+      width: 100%;
+
+      .stickyContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+        padding: 12px 0px 8px 0px;
+        margin-top: 5px;
+
+        .logoContainer {
+          display: flex;
+          align-items: center;
+
+
+          a {
+            display: flex;
+          }
+
+          .collapseIcon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 34px;
+            width: 34px;
+            border-radius: 9999px;
+
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            animation-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 0.3s;
+            color: $text-color;
+
+            svg {
+              height: 14px;
+              width: 17.5px;
+            }
+
+            &:hover {
+              color: $active-menu-color;
+              background-color: $bg-color;
+              cursor: pointer;
+            }
+          }
+        }
+
+
+        .sideSearchContainer {
+          padding: 8px 0 4px 0;
+          margin: 16px 10px;
+          cursor: pointer;
+
+          .addIconContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+            margin: 12px 0 6px;
+            color: $text-color;
+            background-color: $bg-color;
+            border-radius: 9999px;
+
+            svg {
+              height: 20px;
+              width: 25px;
+            }
+
+            &:hover {
+              color: $text-color;
+            }
+          }
+
+          .sideSearchBtn {
+            background-color: rgb(252, 252, 249);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            height: 38px;
+            border: 1px solid $border-color;
+            border-radius: 9999px;
+            padding: 0 10px 0 15px;
+            color: $text-color;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.25rem;
+            transition: all 0.2s;
+            text-decoration: none;
+
+            &:hover {
+              box-shadow: 0 0 0 2px #572976;
+              animation-duration: 0.2s;
+              transition-duration: 0.2s;
+            }
+
+            .searchText {
+              font-size: 0.875rem;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            .shortcut {
+              display: flex;
+              align-items: center;
+              column-gap: 3px;
+              overflow: hidden;
+              font-size: 10px;
+
+              .shortcutIcon {
+                padding: 0px 2px;
+                border: 1px solid $border-color;
+                // height: 20px;
+                width: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.25rem;
+                color: $text-color;
+                // letter-spacing: 1px;
+                font-family: monospace;
+              }
+
+              .icon1 {
+                font-size: 11px;
+              }
+
+              .icon2 {
+                font-size: 11px;
+              }
+            }
+          }
+        }
+
+        .sidemenuLibrary {
+          margin-left: 30px;
+          border-left: 1px solid $border-color;
+
+          ul {
+            padding: 0px 8px;
+            margin: 0px;
+
+            li {
+              padding: 4px;
+              border-radius: 6px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+
+              .searchSvgIcon {
+                display: none;
+              }
+
+              a {
+                font-size: 12px;
+                color: $text-color;
+                text-decoration: none;
+                text-transform: capitalize;
+                font-weight: 500;
+                width: 85%;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+
+              &:hover {
+                background-color: $bg-color;
+
+                a {
+                  color: #050b10;
+                }
+
+                .searchSvgIcon {
+                  display: block;
+                  fill: #050b10;
+                }
+              }
+
+            }
+
+            .activeQuery a {
+              color: $active-menu-color;
+              font-weight: 700;
+            }
+
+          }
+        }
+
+        .menuOptions {
+          cursor: pointer;
+
+          .menuItems {
+            display: flex;
+            align-items: center;
+            column-gap: 6px;
+            padding: 0 16px;
+            height: 2.5rem;
+            margin: 4px 0;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: $text-color;
+            position: relative;
+            text-decoration: none;
+
+            &:hover {
+              background-color: $bg-color;
+              animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+              animation-duration: 0.3s;
+              transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+              transition-duration: 0.3s;
+              color: $active-menu-color;
+            }
+
+            &:hover,
+            &:focus {
+              .removeLibIcon {
+                display: block;
+                position: absolute;
+                right: 15px;
+                border: none;
+                background-color: transparent;
+
+                svg {
+                  width: 16px;
+                  height: 16px;
+                  fill: rgb(97, 6, 6);
+                }
+              }
+            }
+
+            .svgMenus1 svg {
+              height: 20px;
+              width: 25px;
+              display: flex;
+              align-items: center;
+            }
+
+            .svgMenus2 svg {
+              height: 16px;
+              width: 20px;
+              display: flex;
+              align-items: center;
+            }
+
+            .removeLibIcon {
+              display: none;
+            }
+          }
+        }
+
+        .activeTabs {
+
+          .highlightText {
+            color: $active-menu-color;
+            font-weight: 700;
+          }
+
+          .highlightIcon svg {
+            color: $active-menu-color;
+            stroke-width: 7px;
+            stroke: $active-menu-color;
+          }
+
+          .sideBorder {
+            position: absolute;
+            right: 0;
+            height: 100%;
+            width: 0.25rem;
+            border-top-left-radius: 0.125rem;
+            border-bottom-left-radius: 0.125rem;
+            background-color: $active-menu-color;
+          }
+        }
+
+        .showSidebar {
+          display: flex;
+          justify-content: center;
+
+          .collapseIconShow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            bottom: 10%;
+            background-color: $bg-color;
+            border-radius: 9999px;
+            color: $text-color;
+
+            svg {
+              height: 20px;
+              width: 25px;
+            }
+
+            &:hover {
+              color: $text-color;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .flexStartPos {
+          justify-content: flex-start;
+        }
+
+        .centerPos {
+          justify-content: center;
+        }
+
+        .addIconCenter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .logoContainerLg {
+          justify-content: space-between;
+          margin: 0 2px 0 10px;
+        }
+
+        .logoContainerSm {
+          justify-content: center;
+        }
+      }
+    }
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      display: none;
+    }
+
+    @media screen and (max-width: 1012px) {
+      max-width: 195px;
+
+      .sidenavFixed {
+        max-width: 195px;
+      }
+
+    }
+
+    .sidebarCollapse {
+      max-width: $desktopCollapseSidenavWidth;
+      width: 100%;
+      transition: width 0.3s;
+
+      .sidemenuLibrary {
+        display: none;
+      }
+
+      @media screen and (max-width: 1012px) {
+        .sidenavFixed {
+          max-width: $desktopCollapseSidenavWidth;
+        }
+      }
+    }
+  }
+
+  .sidebarCollapse {
+    max-width: $desktopCollapseSidenavWidth;
+    width: 100%;
+    transition: width 0.3s;
+
+    .sidemenuLibrary {
+      display: none;
+    }
+
+    @media screen and (max-width: 1012px) {
+      .sidenavFixed {
+        max-width: $desktopCollapseSidenavWidth;
+      }
+    }
+  }
+
+  .searchonlyContainer2 {
+
+    // search css
+    .searchHeading {
+      font-weight: 500;
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    .inputWrapperOverlay {
+      width: 100%;
+      background-color: #FCFCF9;
+      border-radius: 1rem;
+      padding: 2rem;
+
+      #searchInput,
+      #homesearchInput,
+      #overlaysearchInput {
+        height: 50px;
+        background-color: transparent;
+
+        &:focus {
+          border-bottom-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+        }
+      }
+
+      .inputDropdown {
+        background-color: #fcfcf9;
+        top: calc(100% + 0px);
+        bottom: auto;
+      }
+    }
+
+    .sbModal {
+      border-radius: 7px;
+      max-width: 768px;
+      width: 90vw;
+      // background-color: #F3F3EE;
+      overflow: visible;
+
+      .sbModalTitle {
+        border-bottom: 0px;
+      }
+
+      .sbModalContent {
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        padding-bottom: 35px;
+        overflow: visible;
+      }
+    }
+  }
+
+  // Mobile Footer Menu
+
+  .fixedMenuMob {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $active-menu-color-light;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    width: 100%;
+    height: 64px;
+    border-top: 1px solid $border-color;
+    padding: 0px 8px;
+    z-index: 10;
+
+    ul {
+      padding: 0px;
+      margin: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        padding: 9px 0px;
+        width: 48%;
+
+
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          color: $active-menu-color-dark;
+          text-decoration: none;
+          font-weight: 700;
+
+          svg {
+            width: 18px;
+            height: 18px;
+            margin-bottom: 2px;
+          }
+        }
+      }
+
+      .active {
+        border-top: 5px solid $active-menu-color;
+
+        a {
+          color: $active-menu-color;
+          font-weight: 600;
+
+          svg {
+            fill: $active-menu-color;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      display: block;
+    }
+  }
+
+  // Mobile Menu
+
+  .overlayLibrary {
+    .sbModal {
+      background-color: rgb(252, 252, 249);
+
+      ul {
+        padding: 0px;
+        margin: 0px;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+
+          a {
+            padding: 6px 0px;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: 14px;
+
+            .libraryA {
+              color: #555;
+              width: 80%;
+            }
+
+            .countSpan {
+              padding: 4px 12px;
+              border-radius: 20px;
+              background-color: rgb(243, 243, 238);
+              color: #000;
+              font-size: 13px;
+            }
+
+            .searchSvg {
+              fill: transparent;
+            }
+          }
+
+          &:hover {
+            .searchSvg {
+              display: block;
+              fill: #050b10;
+            }
+          }
+        }
+
+        .activeQuery a span {
+          color: $active-menu-color;
+          font-weight: 700;
+        }
+      }
+
+      .textCenter {
+        text-align: center;
+      }
+
+      .flexRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .remove_lib_icon {
+        display: block;
+        border: none;
+        background-color: transparent;
+        padding-left: 10px;
+
+        svg {
+          width: 16px;
+          height: 16px;
+          fill: rgb(97, 6, 6);
+        }
+      }
+    }
+  }
+
+}

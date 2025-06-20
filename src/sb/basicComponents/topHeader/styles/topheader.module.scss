@@ -1,0 +1,133 @@
+$border-radius: 0.5rem; // refer in main.scss .sub-container class
+
+$mobile-breakpoint: 640px;
+$tablet-breakpoint: 768px;
+
+:global(#sb-root) {
+    .sbHeadertop {
+        position: sticky;
+        top: 0px;
+        z-index: 99;
+        background-color: #FCFCF9;
+        border-bottom: 1px solid hsla(60, 10%, 83%, 0.973);
+        border-top-right-radius: $border-radius ;
+        border-top-left-radius: $border-radius ;
+
+        .container {
+            min-height: 53px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px;
+
+            .logoSection {
+                display: none;
+            }
+
+
+            @media screen and (max-width: $mobile-breakpoint) {
+                padding: 13px 16px;
+
+                .logoSection {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 140px;
+                        height: 32px;
+                    }
+
+                    .onlyLogo {
+                        width: 33px;
+                        height: 33px;
+                    }
+
+                    .newBtn {
+                        display: flex;
+                        align-items: center;
+                        border: none;
+                        background-color: rgb(232, 232, 227);
+                        padding: 6px 9px;
+                        border-radius: 4px;
+                        margin-left: 15px;
+
+                        svg {
+                            width: 12px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+
+            .userSection {
+                display: flex;
+                align-items: center;
+
+                svg,
+                .checkSvg {
+                    fill: gray;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 8px;
+                }
+
+                .username {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #69717c;
+                    margin: 0;
+
+                }
+
+                .checkSvg {
+                    width: 25px;
+                    height: 25px;
+                }
+
+                @media screen and (max-width: $mobile-breakpoint) {
+                    display: none;
+                }
+            }
+
+
+
+            .userLinkSection {
+                display: flex;
+                justify-content: space-between;
+
+                .linkBtn {
+                    color: #fff;
+                    font-size: 13px;
+                    padding: 6px 9px;
+                    border-radius: 8px;
+                    background-color: #7639e2;
+                    background-image: linear-gradient(to bottom, #8625e0, #8320df, #801adf, #7d14de, #7a0bde);
+                    border-color: #7639e2;
+                    margin-right: 10px;
+                    display: flex;
+                    align-items: center;
+
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    @media screen and (max-width: $mobile-breakpoint) {
+                        padding: 6px 9px;
+
+                        svg {
+                            width: 13px;
+                            height: 13px;
+                        }
+                    }
+
+                    &:hover {
+                        color: #e7e7e7;
+                        opacity: 0.8;
+                        translate: 0 1px;
+                    }
+                }
+            }
+        }
+    }
+}

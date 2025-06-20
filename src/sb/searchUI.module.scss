@@ -1,0 +1,203 @@
+@use './css/variables' as variables;
+
+$light-bg-color: #F3F3EE;
+$border-color: hsla(60, 10%, 83%, 0.6);
+$focus-label-bg-color: #f0e7fd;
+$focus-label-text-color: #3b1b74;
+
+// ================================================================================================
+
+
+:global(#sb-root) {
+   .searchMainContainer {
+      background-color: #f3f3ee;
+
+      .sbMainFlex {
+         display: flex;
+         min-height: 100vh;
+         height: 100%;
+         overflow: clip;
+      }
+
+      .sbMainContent {
+         padding: 8px 8px 8px 0;
+         flex-grow: 1;
+      }
+
+      .sbMainContentInner {
+         background-color: #fcfcf9;
+         border-radius: .5rem;
+         display: flex;
+         flex-direction: column;
+
+         .sbSearchContent {
+            max-width: variables.$content-max-width;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @media screen and (max-width:640px) {
+               padding: 0 16px;
+            }
+         }
+
+         .ResultsContainer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            padding-bottom: 82px;
+
+            .ResultsContainerInner {
+               width: 66%;
+               margin: 0;
+
+               .searchHead {
+                  max-width: variables.$content-max-width;
+                  margin: 0 auto;
+                  width: 100%;
+                  padding: 0px;
+
+                  .focusLabelName {
+                     margin: 0px;
+                     font-size: 14px;
+                     display: flex;
+                     align-items: center;
+                     font-weight: 600;
+                     text-transform: capitalize;
+                     background-color: $focus-label-bg-color;
+                     color: $focus-label-text-color;
+                     width: fit-content;
+                     padding:2px 8px;
+                     padding-right: 9px;
+                     border-radius: 6px;
+
+                     svg {
+                        margin-right: 5px;
+                        width: 18px;
+                        height: 18px;
+                     }
+                  }
+
+                  .queryHead {
+                     display: block;
+                     margin: 32px 0px;
+                     margin-top: 0px;
+                     font-weight: 600;
+                     font-size: 26px;
+                     word-break: break-word;
+
+                     @media screen and (max-width: variables.$mobile-breakpoint) {
+                        font-size: 24px;
+                     }
+                  }
+               }
+
+               .FixedsearchInputContainer {
+                  position: fixed;
+                  width: 50%;
+                  bottom: 32px;
+                  z-index: 0;
+                  background-color: $light-bg-color;
+                  box-shadow: 0px 0px 5px 1px $border-color;
+                  border-radius: 1rem;
+
+
+                  @media screen and (max-width: 996px) {
+                     width: 60%;
+                     z-index:30;
+                  }
+
+                  @media screen and (max-width:640px) {
+                     width: 90%;
+                     padding: 0px;
+                     bottom: 80px;
+                     box-shadow: 0px 0px 3px 1px $border-color;
+                  }
+               }
+            }
+
+            .ImageResultsContainerResponsive{
+               display: none;
+            }
+
+            .ImageResultsContainer {
+               width: 30%;
+               margin: 0;
+
+               .ImageResultsContainerInner {
+                  position: sticky;
+                  top: 72px;
+                  max-height: 100vh;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 20px;
+               }
+            }
+
+            @media screen and (max-width: variables.$tablet-breakpoint) {
+               flex-wrap: wrap;
+               padding-bottom: 120px;
+               flex-direction: column;
+               width: 100%;
+
+               .ImageResultsContainer{
+                  display: none;
+               }
+
+               .ImageResultsContainerResponsive{
+                  display: block;
+                  margin: 10px 0 30px 0px;
+               }
+
+               .ImageResultsContainerResponsive,.ResultsContainerInner{
+                  width: 100%;
+               }
+            }
+
+            @media screen and (max-width:640px) {
+               width: 100%;
+               flex-direction: column;
+
+               .ResultsContainerInner{
+                  width: 100%;
+               }
+
+               .ImageResultsContainer{
+                  display: none;
+               }
+               .ImageResultsContainerResponsive{
+                  display: block;
+                  margin: 10px 0 30px 0px;
+               }
+            }
+         }
+      }
+   }
+
+   .generatedContentContainer {
+
+      &:not(:empty) {
+         margin-bottom: 30px;
+         padding-bottom: 30px;
+      }
+
+      @media screen and (min-width: variables.$desktop-breakpoint) {
+         flex-direction: row;
+         align-items: flex-start;
+      }
+
+      &>* {
+         flex: 1 1 50%;
+      }
+   }
+
+   .resultsHeaderMenu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+   }
+}

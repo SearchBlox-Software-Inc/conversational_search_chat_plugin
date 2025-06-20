@@ -1,0 +1,17 @@
+:global(#sb-root) {
+   .sbFooter {
+      font-size: 11px;
+      padding: 20px 0;
+      text-align: center;
+
+      .poweredBy {
+         translate: 0 2px;
+         margin: 0;
+     }
+   
+      .copyright {
+         margin: 10px 0 0;
+         padding: 0px 10px;
+      }
+   }
+}

@@ -1,0 +1,264 @@
+$accent-color: #7d4dde;
+
+$mobile-breakpoint: 640px;
+
+:global(#sb-root) {
+
+    .searchFocusOptionsStyle,
+    .searchFocusOptionsStyleResults {
+        position: relative;
+        padding: 10px 0px;
+
+        .focusEnterBtns {
+            display: flex;
+            justify-content: space-between;
+
+            .focusBtn {
+                background-color: transparent;
+                border: none;
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                padding: 6px 5px;
+                font-weight: 500;
+                text-transform: capitalize;
+                background-color: transparent;
+                border: 1px solid #d9d9d0;
+                border-radius: 8px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                color: #260e46;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                    margin-right: 5px;
+                }
+
+                .arrowIcon,
+                .arrowIconOpen {
+                    transition: 0.3s ease;
+                    margin-left: 5px;
+                }
+
+                .arrowIcon {
+                    rotate: 0deg;
+                }
+
+                .arrowIconOpen {
+                    rotate: 180deg;
+                }
+
+                &:hover {
+                    background-color: #e0ceff;
+                }
+
+                @media screen and (max-width: $mobile-breakpoint) {
+
+                    span {
+                        display: none;
+                    }
+
+                    .arrowIcon,
+                    .arrowIconOpen {
+                        display: none;
+                    }
+
+                    svg {
+                        margin-right: 0px;
+                    }
+                }
+            }
+
+            .enterBtn {
+                background-color: $accent-color;
+                padding: 6px 8px;
+                border-radius: 15px;
+                font-size: 15px;
+                border: none;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    fill: #fff;
+                }
+            }
+
+            .sbDisableEnter {
+                opacity: 0.6;
+                background-color: rgb(224, 224, 220);
+                pointer-events: none;
+
+                svg {
+                    fill: #555
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+
+        .dropdown,
+        .dropdownTop {
+            padding: 20px 25px;
+            left: 0px;
+            bottom: 59px;
+            box-shadow: rgba(50, 50, 93, 0.1) -20px 0px 40px -15px, rgba(0, 0, 0, 0.1) 0px -15px 30px -15px;
+            min-width: 250px;
+            top: auto;
+
+            @media screen and (min-width: 640px) {
+                left: 0;
+                bottom: 59px;
+                top: auto;
+            }
+        }
+
+        .dropdownTop {
+            bottom: auto;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.2) 0px 30px 60px -30px;
+            ;
+        }
+
+        .configureCollection {
+            text-align: center;
+            font-size: 13px;
+            color: #666666;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+
+        .colView {
+
+
+            h2 {
+                border-bottom: 1px solid #e9e9e9;
+                color: #474747;
+                font-size: 13px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            ul {
+                padding: 0px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin: 3px 0px;
+                max-width: 350px;
+                gap: 4px;
+
+                @media screen and (max-width: $mobile-breakpoint) {
+                    max-width: 200px;
+                }
+
+                li {
+
+                    // display: inline-block;
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 3px;
+                        padding: 8px 13px;
+                        font-size: 15px;
+                        text-transform: capitalize;
+                        word-break: break-word;
+
+                        .radioBtn {
+                            border: 1px solid #000;
+                            border-radius: 50%;
+                            margin-right: 4px;
+                            flex-shrink: 0;
+                            height: 14px;
+                            width: 14px;
+                            display: grid;
+                            place-items: center;
+
+                            &::after {
+                                content: "";
+                                display: block;
+                                background-color: transparent;
+                                border-radius: 50%;
+                                height: 8px;
+                                width: 8px;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        background-color: rgb(232, 232, 227);
+                        border-radius: 6px;
+                    }
+                }
+
+                .active {
+                    button {
+                        font-weight: 600;
+                        color: #111432;
+
+                        .radioBtn {
+                            border-color: #7639E2;
+
+                            &::after {
+                                background-color: #7639E2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .resultColView {
+            bottom: 52px;
+            background-color: #fff;
+
+            ul {
+                max-width: 200px;
+            }
+        }
+    }
+
+
+    .searchFocusOptionsStyleResults {
+        border-right: 1px solid #d9d9d0;
+        padding: 0px;
+
+        .focusEnterBtns {
+            height: 100%;
+
+            .focusBtn {
+                border: none;
+                // background-color: #f3f4ff;
+                // border: 1px solid #ddcbff;
+                padding:0px 15px;
+                border-radius: 0px;
+                box-shadow: none;
+                border-radius: 8px;
+
+                &:hover {
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+
+                .arrowIcon {
+                    transition: 0.3s ease;
+                    rotate: 180deg;
+                }
+
+                .arrowIconOpen {
+                    transition: 0.3s ease;
+                    rotate: 0deg;
+                }
+            }
+        }
+        .dropdown{
+            left:0;
+        }
+    }
+}
