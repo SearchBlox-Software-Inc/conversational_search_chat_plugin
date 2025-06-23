@@ -54,16 +54,36 @@ Clone the repository and navigate to its directory. To run the plugin locally fo
    Rename the dist folder as desired, compress it to a ZIP file, and upload it through the Search Settings page in the SearchBlox admin console. When making changes, rebuild and upload the new ZIP file with the same name to update the existing plugin.
 
    
-   ![Search Settings Navigation](https://github.com/SearchBlox-Software-Inc/conversational_search_chat_plugin/blob/main/src/assets/images/search-settings.png)
+   ![Search Settings Navigation](https://github.com/SearchBlox-Software-Inc/searchblox-screenshots/blob/main/images/search-settings.png)
 
 
 
    The URL of the deployed plugin will be available on successful upload:
 
 
-   ![Plugin Upload Success](https://github.com/SearchBlox-Software-Inc/conversational_search_chat_plugin/blob/main/src/assets/images/plugin-uploaded.png)
+   ![Plugin Upload Success](https://github.com/SearchBlox-Software-Inc/searchblox-screenshots/blob/main/images/plugin-uploaded.png)
    
 
+### Working Sample
+
+Once your plugin is successfully uploaded, you can access it using the provided URL. Here's a demonstration of the SearchAI Experience plugin in action, showcasing all its key features:
+
+  ![Conversational Search Chat Plugin Demo](https://github.com/SearchBlox-Software-Inc/searchblox-screenshots/blob/main/gifs/conversational_search_chat_plugin.gif)
+
+**Features demonstrated in the sample:**
+
+- **Hybrid Search**: Combines keyword and vector search for enhanced relevance
+- **AI Overview**: Intelligent summaries of search results
+- **Smart Recommendations**: AI-powered content suggestions
+- **SearchAI Assist**: Interactive search assistance and query refinement
+- **ChatBot Integration**: Conversational search interface
+- **LLM-Generated Fields**: Dynamic content generation for enhanced results
+- **Advanced Filtering**: Collection search with multiple filter options
+- **Responsive Design**: Optimized for desktop and mobile devices
+
+The plugin automatically adapts to your collection's content and provides a seamless search experience with AI-powered enhancements.
+
+   
 
 ## Configuration
 
