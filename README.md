@@ -66,7 +66,7 @@ Clone the repository and navigate to its directory. To run the plugin locally fo
 
 ### Working Sample
 
-Once your plugin is successfully uploaded, you can access it using the provided URL. Here's a demonstration of the SearchAI Experience plugin in action, showcasing all its key features:
+Once your plugin is successfully uploaded, you can access it using the provided URL. Here's a demonstration of the Conversational Search Chat plugin in action, showcasing all its key features:
 
   ![Conversational Search Chat Plugin Demo](https://github.com/SearchBlox-Software-Inc/searchblox-screenshots/blob/main/gifs/conversational_search_chat_plugin.gif)
 
@@ -78,7 +78,7 @@ Once your plugin is successfully uploaded, you can access it using the provided 
 - **SearchAI Assist**: Interactive search assistance and query refinement
 - **ChatBot Integration**: Conversational search interface
 - **LLM-Generated Fields**: Dynamic content generation for enhanced results
-- **Advanced Filtering**: Collection search with multiple filter options
+- **Focus Setting**: Allows search across different collections using radio buttons
 - **Responsive Design**: Optimized for desktop and mobile devices
 
 The plugin automatically adapts to your collection's content and provides a seamless search experience with AI-powered enhancements.
